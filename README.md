@@ -110,3 +110,12 @@ Total :
 
 
  ```
+
+
+ ## To do
+
+ A lot. But for now it's enough for me. 
+
+ Known bugs : 
+  - You have to exit and re-run the script to cancel and return to main menu (#1)
+  - After a while, the bash crash probably because of recursive loop into the main menu (#2)
