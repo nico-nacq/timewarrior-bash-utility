@@ -244,10 +244,11 @@ mainMenu() {
 	if [ $action == "p" -o $action == "P" ]
 	then
 		
+		client=$(searchGroupTag cli)
 		read -p "${blue}Tag to be replaced${normal} : " task1
 		read -p "${blue}New tag${normal}  : " task2
-		timew tag $(timew summary 2000-01-01 - 2050-01-01 :ids "$task1" | awk -F "@" '{if($2!="") print "@"$2}' | awk -F " " '{print $1}' |  tr "\n" " ") "$task2"
-		timew untag $(timew summary 2000-01-01 - 2050-01-01 :ids "$task1" | awk -F "@" '{if($2!="") print "@"$2}' | awk -F " " '{print $1}' |  tr "\n" " ") "$task1"
+		timew tag $(timew summary 2000-01-01 - 2050-01-01 :ids "$client" "$task1" | awk -F "@" '{if($2!="") print "@"$2}' | awk -F " " '{print $1}' |  tr "\n" " ") "$task2"
+		timew untag $(timew summary 2000-01-01 - 2050-01-01 :ids "$client" "$task1" | awk -F "@" '{if($2!="") print "@"$2}' | awk -F " " '{print $1}' |  tr "\n" " ") "$task1"
 		
 		
 		report $defaultPeriod
@@ -255,7 +256,7 @@ mainMenu() {
 		return
 	fi
 	
-	
+
 	if [ $action == "g" -o $action == "G" ]
 	then
 		
